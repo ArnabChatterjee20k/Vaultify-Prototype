@@ -1,26 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SideNav from "./layout/SideNav";
-import Files from "./pages/Files/";
-import Upload from "./pages/Upload";
+import { BrowserRouter } from "react-router-dom";
 import Box from "@mui/material/Box";
+import { useAddress } from "@thirdweb-dev/react";
+import { AuthorisedHome } from "./pages/AuthorisedHome";
+import Auth from "./pages/Auth";
 function App() {
+  const address = useAddress()
   return (
     <BrowserRouter>
       <Box sx={{ display: "flex", gap: "2em" }}>
-        <SideNav />
-        <Box
-          sx={{
-            paddingBlock: "1.2rem",
-            width: "100%",
-            backgroundColor: "whitesmoke",
-            paddingInline: "1em",
-          }}
-        >
-          <Routes>
-            <Route path="/" element={<Files />} />
-            <Route path="/upload" element={<Upload />} />
-          </Routes>
-        </Box>
+        {address?<AuthorisedHome/>:<Auth/>}
       </Box>
     </BrowserRouter>
   );

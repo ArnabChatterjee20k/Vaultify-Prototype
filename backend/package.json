@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "supbase":"npx supabase status"
-
+    "supbase": "npx supabase status"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +13,7 @@
     "@supabase/supabase-js": "^2.39.0",
     "ethers": "^6.9.0",
     "express": "^4.18.2",
-    "websocket": "^1.0.34"
+    "websocket": "^1.0.34",
+    "winston": "^3.11.0"
   }
 }
