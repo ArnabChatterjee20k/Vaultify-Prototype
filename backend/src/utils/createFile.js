@@ -1,13 +1,19 @@
 const tableConfig = require("../db/tableConfig");
 const { errorLogger, activityLogger } = require("../logger");
+const generateEmbedding = require("../utils/embeddings");
 const supabaseClient = require("../supbaseClient");
 
-async function createFile({ ipfsAddress, fileType, description }) {
+async function createFile({ ipfsAddress, fileType, description, embedding }) {
   try {
-    const { status } = await supabaseClient
-      .from(tableConfig.FILES)
-      .insert({ ipfs_address: ipfsAddress, filetype: fileType, description });
-    const message = `file-created-${ipfsAddress}`;
+    const { status } = await supabaseClient.from(tableConfig.FILES).insert({
+      ipfs_address: ipfsAddress,
+      filetype: fileType,
+      description,
+      embedding: description.toString().trim()
+        ? await generateEmbedding(description)
+        : null,
+    });
+    const message = `file-created-${ipfsAddress}-${status}`;
     activityLogger.info(message);
   } catch (error) {
     const message = `file-error-${ipfsAddress}-${error.message}`;
@@ -16,4 +22,4 @@ async function createFile({ ipfsAddress, fileType, description }) {
   }
 }
 
-module.exports = createFile
+module.exports = createFile;

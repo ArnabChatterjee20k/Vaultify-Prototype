@@ -3,28 +3,34 @@ import Box from "@mui/material/Box";
 import { useRef, useState } from "react";
 import useUploadFiles from "./services/useUploadFiles";
 import Button from "@mui/material/Button";
+import useBlockchain from "../../services/useBlockchain";
 
 export default function index() {
   const [file, setFile] = useState(null);
-  const fileName = useRef("");
+  const fileDescription = useRef("");
+  const { addFileToBlockchain } = useBlockchain();
   const handleChange = (file) => {
     setFile(file);
   };
   const { upload, isUploadLoading } = useUploadFiles();
   async function submit() {
-    await upload({ data: [file] });
-    alert("done");
+    if (!fileDescription.current.trim()) {
+      alert("Please give file description");
+      return;
+    }
+    const [ipfsURI] = await upload({ data: [file] });
+    addFileToBlockchain(ipfsURI, fileDescription.current, file.type);
   }
   return (
     <Box>
       <FileUploader handleChange={handleChange} name="file" />
       <input
         onChange={(e) => {
-          fileName.current = e.target.value;
+          fileDescription.current = e.target.value;
         }}
         style={{ padding: "1em", fontSize: "1rem" }}
         type="text"
-        placeholder="name of the image"
+        placeholder="description of the image"
       />
       <Button onClick={submit}>
         {isUploadLoading ? "Loading..." : "Upload"}
