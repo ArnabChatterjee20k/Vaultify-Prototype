@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "supbase": "npx supabase status"
+    "supbase": "npx supabase status",
+    "generate_schema":"npx supabase db diff --use-migra current_schema -f current_schema"
   },
   "keywords": [],
   "author": "",

@@ -3,7 +3,7 @@ const { errorLogger, activityLogger } = require("../logger");
 const generateEmbedding = require("../utils/embeddings");
 const supabaseClient = require("../supbaseClient");
 
-async function createFile({ ipfsAddress, fileType, description, embedding }) {
+async function createFile({ ipfsAddress, fileType, description }) {
   try {
     const { status } = await supabaseClient.from(tableConfig.FILES).insert({
       ipfs_address: ipfsAddress,
