@@ -169,5 +169,5 @@ export default function useBlockchain() {
   async function addFileToBlockchain(fileIPFSID, description, fileType) {
     await contract.addFiles(address, fileIPFSID, description, fileType);
   }
-  return { addFileToBlockchain };
+  return { addFileToBlockchain,contract , address};
 }
