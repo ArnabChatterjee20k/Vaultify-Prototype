@@ -7,13 +7,24 @@ import abi from "smartcontractconfigs/abi";
 export default function useBlockchain() {
   const signer = useSigner();
   const address = useAddress();
-  const contract = new ethers.Contract(
-    contractAddress,
-    abi,
-    signer
-  );
+  const contract = new ethers.Contract(contractAddress, abi, signer);
   async function addFileToBlockchain(fileIPFSID, description, fileType) {
     await contract.addFiles(address, fileIPFSID, description, fileType);
   }
-  return { addFileToBlockchain, contract, address };
+
+  function getAccessorOfFile(fileIPFSID) {
+    return contract.getUserWithFileAccessPermission(fileIPFSID);
+  }
+
+  function shareFile(fileIPFSID, userName) {
+    contract.shareFileWithUsers(fileIPFSID, userName);
+  }
+
+  return {
+    addFileToBlockchain,
+    contract,
+    address,
+    getAccessorOfFile,
+    shareFile,
+  };
 }

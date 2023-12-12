@@ -156,4 +156,41 @@ export default [
     stateMutability: "view",
     type: "function",
   },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "fileIPFSID",
+        type: "string",
+      },
+    ],
+    name: "getUserWithFileAccessPermission",
+    outputs: [
+      {
+        internalType: "string[]",
+        name: "",
+        type: "string[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "fileIPFSID",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "userName",
+        type: "string",
+      },
+    ],
+    name: "shareFileWithUsers",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
 ];

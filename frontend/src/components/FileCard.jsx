@@ -9,18 +9,15 @@ import Description from "@mui/icons-material/Description";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PictureAsPdf from "@mui/icons-material/PictureAsPdf";
 import WalletProfilePicture from "./WalletProfilePicture";
+import ActionMenu from "./ActionMenu";
 
-export default function FileCard({ title, url, fileType }) {
+export default function FileCard({ title, url, fileType,fileIPFSID }) {
   const isImage = fileType === "png";
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={<PictureAsPdf />}
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
+        action={<ActionMenu fileIPFSID={fileIPFSID}/>}
         subheader={title}
         subheaderTypographyProps={{
           width: "150px",

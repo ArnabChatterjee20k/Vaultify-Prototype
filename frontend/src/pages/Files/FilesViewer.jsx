@@ -13,6 +13,7 @@ export default function FilesViewer() {
       {files.map((ipfs) => {
         return (
           <FileCard
+            fileIPFSID={ipfs}
             url={storage.resolveScheme(ipfs)}
             fileType={getFileType(ipfs)}
             title={getFileName(ipfs)}
