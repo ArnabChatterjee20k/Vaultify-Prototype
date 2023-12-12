@@ -1,11 +1,10 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "supbase": "npx supabase status",
-    "generate_schema":"npx supabase db diff --use-migra current_schema -f current_schema"
+    "generate_schema": "npx supabase db diff --use-migra current_schema -f current_schema"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +16,15 @@
     "websocket": "^1.0.34",
     "winston": "^3.11.0",
     "@xenova/transformers": "^2.6.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArnabChatterjee20k/Vaultify-Prototype.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ArnabChatterjee20k/Vaultify-Prototype/issues"
+  },
+  "homepage": "https://github.com/ArnabChatterjee20k/Vaultify-Prototype#readme",
+  "description": ""
 }

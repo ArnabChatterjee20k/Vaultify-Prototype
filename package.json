@@ -1,0 +1,21 @@
+{
+  "name": "vaultify-prototype",
+  "version": "1.0.0",
+  "description": "https://www.npmjs.com/package/@cyntler/react-doc-viewer",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArnabChatterjee20k/Vaultify-Prototype.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArnabChatterjee20k/Vaultify-Prototype/issues"
+  },
+  "homepage": "https://github.com/ArnabChatterjee20k/Vaultify-Prototype#readme",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}
