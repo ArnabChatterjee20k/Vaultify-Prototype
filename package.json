@@ -20,6 +20,7 @@
   "homepage": "https://github.com/ArnabChatterjee20k/Vaultify-Prototype#readme",
   "workspaces": [
     "frontend",
-    "backend"
+    "backend",
+    "SmartContractConfigs"
   ]
 }

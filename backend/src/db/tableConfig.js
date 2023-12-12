@@ -1,5 +1,4 @@
-const tableConfig = {
+export default {
   FILES: "files",
   USERS: "USERS",
 };
-module.exports = tableConfig;

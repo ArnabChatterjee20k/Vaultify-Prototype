@@ -1,6 +1,6 @@
-const { createLogger, transports, format } = require("winston");
+import { createLogger, transports, format } from "winston";
 
-const errorLogger = createLogger({
+export const errorLogger = createLogger({
   level: "debug",
   format: format.json(),
   transports: [
@@ -10,7 +10,7 @@ const errorLogger = createLogger({
   ],
 });
 
-const activityLogger = createLogger({
+export const activityLogger = createLogger({
   level: "debug",
   format: format.json(),
   transports: [
@@ -19,5 +19,3 @@ const activityLogger = createLogger({
     }),
   ],
 });
-
-module.exports = {errorLogger,activityLogger};

@@ -7,4 +7,4 @@ const generateEmbedding = async (text) => {
   });
   return Array.from(output.data);
 };
-module.exports = generateEmbedding
+export default generateEmbedding

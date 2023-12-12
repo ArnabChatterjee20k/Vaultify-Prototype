@@ -1,7 +1,7 @@
-const tableConfig = require("../db/tableConfig");
-const { errorLogger, activityLogger } = require("../logger");
-const generateEmbedding = require("../utils/embeddings");
-const supabaseClient = require("../supbaseClient");
+import tableConfig from "../db/tableConfig.js";
+import { errorLogger,activityLogger } from "../logger.js";
+import generateEmbedding from "../utils/embeddings.js";
+import supabaseClient from "../supbaseClient.js";
 
 async function createFile({ ipfsAddress, fileType, description }) {
   try {
@@ -22,4 +22,4 @@ async function createFile({ ipfsAddress, fileType, description }) {
   }
 }
 
-module.exports = createFile;
+export default createFile;

@@ -6,6 +6,8 @@ https://www.npmjs.com/package/@cyntler/react-doc-viewer
 
 https://ruanmartinelli.com/posts/npm-7-workspaces-1/
 
+https://blog.logrocket.com/managing-full-stack-monorepo-pnpm/
+
 ## How monorepos are working actually?
 
 - Basically here we are having two workspaces frontend and backend
@@ -36,4 +38,9 @@ npm install package-a --workspace package-b
 
 # Install `eslint` in all packages
 npm install eslint --workspaces
+```
+## Sharing a package across all other packages using symbolic link
+Here I am sharing the smartcontracts config across frontend and backend
+```
+npm link ./smartcontractconfig
 ```

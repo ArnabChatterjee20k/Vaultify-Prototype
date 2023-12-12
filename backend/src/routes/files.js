@@ -1,4 +1,4 @@
-const express = require("express")
+import express from "express"
 const filesRouter = express.Router()
 
 filesRouter.get("/",async(req,res)=>{
@@ -9,4 +9,4 @@ filesRouter.get("/",async(req,res)=>{
     res.send(query)
 })
 
-module.exports = filesRouter
+export default filesRouter
