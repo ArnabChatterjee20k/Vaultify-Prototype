@@ -8,8 +8,8 @@
     "url": "git+https://github.com/ArnabChatterjee20k/Vaultify-Prototype.git"
   },
   "scripts": {
-    "server":"npm run -w backend dev",
-    "client":"npm run -w frontend dev"
+    "server": "npm run -w backend dev",
+    "client": "npm run -w frontend dev"
   },
   "keywords": [],
   "author": "",
