@@ -10,24 +10,30 @@ import Stack from "@mui/material/Stack";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ShareModal from "./ShareModal";
 
-export default function ActionMenu({fileIPFSID}) {
+export default function ActionMenu({ fileIPFSID }) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
-
+  const [shareMenu, setShareMenu] = React.useState(false);
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
 
   const handleClose = (event) => {
-    if (anchorRef.current) {
-      return;
-    }
     setOpen(false);
   };
 
+  const openShareMenu = () => {
+    setShareMenu(true);
+    handleClose();
+  };
+
+  const closeModal = ()=>{
+    setShareMenu(false)
+  }
+
   return (
     <Stack direction="row" spacing={2}>
-      <ShareModal fileIPFSID={fileIPFSID}/>
+      <ShareModal handleClose={closeModal} open={shareMenu} fileIPFSID={fileIPFSID} />
       <div>
         <IconButton
           ref={anchorRef}
@@ -62,7 +68,7 @@ export default function ActionMenu({fileIPFSID}) {
                     id="composition-menu"
                     aria-labelledby="composition-button"
                   >
-                    <MenuItem onClick={handleClose}>Share</MenuItem>
+                    <MenuItem onClick={openShareMenu}>Share</MenuItem>
                     <MenuItem onClick={handleClose}>Download</MenuItem>
                   </MenuList>
                 </ClickAwayListener>

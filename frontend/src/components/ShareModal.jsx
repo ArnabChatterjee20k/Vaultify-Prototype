@@ -4,35 +4,58 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import useBlockchain from "../services/useBlockchain";
 import { useEffect, useState } from "react";
 
-export default function ShareModal({ fileIPFSID }) {
-  console.log({ fileIPFSID });
+export default function ShareModal({ fileIPFSID, open, handleClose }) {
   return (
     <Dialog
       sx={{ "& .MuiDialog-paper": { width: "100%", maxHeight: 435 } }}
       maxWidth="xs"
-      open={true}
+      open={open}
     >
       <DialogTitle>Share</DialogTitle>
       <DialogContent dividers>
-        <ShareBox />
+        <ShareBox fileIPFSID={fileIPFSID}/>
         <AccessList fileIPFSID={fileIPFSID} />
       </DialogContent>
       <DialogActions>
-        <Button autoFocus>Done</Button>
+        <Button onClick={handleClose} autoFocus>
+          Done
+        </Button>
       </DialogActions>
     </Dialog>
   );
 }
-function ShareBox() {
+function ShareBox({fileIPFSID}) {
+  const [addresses, setAddresses] = useState([]);
+  const {shareFile} = useBlockchain()
   return (
     <Stack flexDirection="row" marginY="1rem">
-      <TextField placeholder="Add people" fullWidth />
-      <Button>Share</Button>
+      <Autocomplete
+        onChange={(e) => {
+          setAddresses((prev) => [...prev, e.target.value]);
+        }}
+        fullWidth
+        clearIcon={false}
+        options={[]}
+        value={addresses}
+        freeSolo
+        multiple
+        renderTags={(value, props) => {
+          return value.map((option, index) => (
+            <Chip label={option} {...props({ index })} />
+          ));
+        }}
+        renderInput={(params) => (
+          <TextField label="Add people group" {...params} fullWidth />
+        )}
+      />
+      <Button onClick={()=>shareFile(fileIPFSID,addresses)}>Share</Button>
     </Stack>
   );
 }
@@ -40,14 +63,12 @@ function ShareBox() {
 function AccessList({ fileIPFSID }) {
   const { getAccessorOfFile } = useBlockchain();
   const [accessors, setAccessors] = useState([]);
-  const [status, setStatus] = "loading"; // loading,success
   useEffect(() => {
     (async () => {
       const data = await getAccessorOfFile(fileIPFSID);
       setAccessors(data);
-      setStatus("success");
     })();
-  }, []);
+  }, [fileIPFSID]);
   return (
     <Stack>
       <Typography>People with access</Typography>

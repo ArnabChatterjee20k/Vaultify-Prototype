@@ -7,9 +7,9 @@ export const useFiles = () => useContext(FilesContext);
 export default function FilesContextProvider({ children }) {
   const { contract, address } = useBlockchain();
   const [files, setFiles] = useState([]); // userWallet => files
-  const [queriedFiles,setQueriedFiles] = useState([])
+  const [queriedFiles, setQueriedFiles] = useState([]);
   async function getFiles() {
-    const files = await contract.getFilesOfUser(address);
+    const files = await contract.getFilesOfUser();
     setFiles(files);
   }
   useEffect(() => {
@@ -17,6 +17,10 @@ export default function FilesContextProvider({ children }) {
   }, [address]);
 
   return (
-    <FilesContext.Provider value={{files,getFiles,queriedFiles,setQueriedFiles}}>{children}</FilesContext.Provider>
+    <FilesContext.Provider
+      value={{ files, getFiles, queriedFiles, setQueriedFiles }}
+    >
+      {children}
+    </FilesContext.Provider>
   );
 }

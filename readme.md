@@ -2,6 +2,9 @@
 
 https://www.npmjs.com/package/@cyntler/react-doc-viewer
 
+- using autocomplete keydown events
+https://stackoverflow.com/questions/59035788/material-ui-autocomplete-can-tags-be-created-on-events-aside-from-enter-event
+
 ## Using monorepos
 
 https://ruanmartinelli.com/posts/npm-7-workspaces-1/

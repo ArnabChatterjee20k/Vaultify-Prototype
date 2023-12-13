@@ -16,8 +16,13 @@ export default function useBlockchain() {
     return contract.getUserWithFileAccessPermission(fileIPFSID);
   }
 
-  function shareFile(fileIPFSID, userName) {
-    contract.shareFileWithUsers(fileIPFSID, userName);
+  /**
+   * 
+   * @param {string} fileIPFSID 
+   * @param {string[]} reciepientWalletAddress 
+   */
+  function shareFile(fileIPFSID, reciepientWalletAddress) {
+    contract.shareFileWithUsers(fileIPFSID, reciepientWalletAddress);
   }
 
   return {
