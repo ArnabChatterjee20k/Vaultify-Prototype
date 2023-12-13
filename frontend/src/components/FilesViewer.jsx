@@ -1,11 +1,9 @@
 import Stack from "@mui/material/Stack";
-import { useFiles } from "../../context/FilesContextProvider";
 import { useStorage } from "@thirdweb-dev/react";
-import FileCard from "../../components/FileCard";
-import { getFileName, getFileType } from "../../utils/ipfs";
+import { getFileName, getFileType } from "../utils/ipfs";
+import FileCard from "./FileCard";
 
-export default function FilesViewer() {
-  const { files } = useFiles();
+export default function FilesViewer({ files, owner }) {
   const storage = useStorage();
 
   return (
@@ -13,7 +11,7 @@ export default function FilesViewer() {
       {files.map((ipfs) => {
         return (
           <FileCard
-            owner={true}
+            owner={owner}
             fileIPFSID={ipfs}
             url={storage.resolveScheme(ipfs)}
             fileType={getFileType(ipfs)}

@@ -11,13 +11,13 @@ import PictureAsPdf from "@mui/icons-material/PictureAsPdf";
 import WalletProfilePicture from "./WalletProfilePicture";
 import ActionMenu from "./ActionMenu";
 
-export default function FileCard({ title, url, fileType,fileIPFSID }) {
+export default function FileCard({ title, url, fileType, fileIPFSID, owner }) {
   const isImage = fileType === "png";
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={<PictureAsPdf />}
-        action={<ActionMenu fileIPFSID={fileIPFSID}/>}
+        action={owner &&<ActionMenu fileIPFSID={fileIPFSID} />}
         subheader={title}
         subheaderTypographyProps={{
           width: "150px",
@@ -37,10 +37,14 @@ export default function FileCard({ title, url, fileType,fileIPFSID }) {
           gap: 1,
         }}
       >
-        <WalletProfilePicture />
-        <Typography variant="body2" color="text.secondary">
-          Last Opened
-        </Typography>
+        {owner && (
+          <>
+            <WalletProfilePicture />
+            <Typography variant="body2" color="text.secondary">
+              Last Opened
+            </Typography>
+          </>
+        )}
       </CardContent>
     </Card>
   );

@@ -59,7 +59,6 @@ function ShareBox({fileIPFSID}) {
     </Stack>
   );
 }
-
 function AccessList({ fileIPFSID }) {
   const { getAccessorOfFile } = useBlockchain();
   const [accessors, setAccessors] = useState([]);

@@ -2,38 +2,18 @@ export default [
 	{
 		"inputs": [
 			{
-				"internalType": "string",
-				"name": "fileIPFSID",
-				"type": "string"
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
 			},
 			{
-				"internalType": "string",
-				"name": "description",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "filetype",
-				"type": "string"
+				"internalType": "uint256",
+				"name": "length",
+				"type": "uint256"
 			}
 		],
-		"name": "addFiles",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "key",
-				"type": "string"
-			}
-		],
-		"name": "deleteFromMap",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"name": "StringsInsufficientHexLength",
+		"type": "error"
 	},
 	{
 		"anonymous": false,
@@ -68,12 +48,30 @@ export default [
 				"type": "string"
 			},
 			{
-				"internalType": "string[]",
-				"name": "walletAddress",
-				"type": "string[]"
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "filetype",
+				"type": "string"
 			}
 		],
-		"name": "shareFileWithUsers",
+		"name": "addFiles",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "key",
+				"type": "string"
+			}
+		],
+		"name": "deleteFromMap",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -169,6 +167,24 @@ export default [
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "fileIPFSID",
+				"type": "string"
+			},
+			{
+				"internalType": "address[]",
+				"name": "walletAddress",
+				"type": "address[]"
+			}
+		],
+		"name": "shareFileWithUsers",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
