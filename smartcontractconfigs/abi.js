@@ -2,6 +2,60 @@ export default [
 	{
 		"inputs": [
 			{
+				"internalType": "string",
+				"name": "fileIPFSID",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "filetype",
+				"type": "string"
+			}
+		],
+		"name": "addFiles",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "key",
+				"type": "string"
+			}
+		],
+		"name": "deleteFromMap",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "fileIPFSID",
+				"type": "string"
+			},
+			{
+				"internalType": "address[]",
+				"name": "walletAddress",
+				"type": "address[]"
+			}
+		],
+		"name": "shareFileWithUsers",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "uint256",
 				"name": "value",
 				"type": "uint256"
@@ -39,42 +93,6 @@ export default [
 		],
 		"name": "FileAdded",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "fileIPFSID",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "description",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "filetype",
-				"type": "string"
-			}
-		],
-		"name": "addFiles",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "key",
-				"type": "string"
-			}
-		],
-		"name": "deleteFromMap",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"inputs": [
@@ -167,24 +185,6 @@ export default [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "fileIPFSID",
-				"type": "string"
-			},
-			{
-				"internalType": "address[]",
-				"name": "walletAddress",
-				"type": "address[]"
-			}
-		],
-		"name": "shareFileWithUsers",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{

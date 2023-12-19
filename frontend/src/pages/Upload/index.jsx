@@ -18,8 +18,12 @@ export default function index() {
       alert("Please give file description");
       return;
     }
-    const [ipfsURI] = await upload({ data: [file] });
-    addFileToBlockchain(ipfsURI, fileDescription.current, file.type);
+    try {
+      const [ipfsURI] = await upload({ data: [file] });
+      addFileToBlockchain(ipfsURI, fileDescription.current, file.type);
+    } catch (error) {
+      console.log(error)
+    }
   }
   return (
     <Box>

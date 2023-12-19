@@ -11,8 +11,8 @@ export default function SearchBar() {
   const { files } = useFiles();
   const [query, setQuery] = useSearchParams();
   async function search() {
-    const data = await semanticSearch(query.current, files);
-    console.log(data);
+    const data = await semanticSearch(query.get("q"), files);
+    
   }
   return (
     <Paper

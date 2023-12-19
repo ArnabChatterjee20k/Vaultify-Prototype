@@ -9,7 +9,7 @@ export default function useBlockchain() {
   const address = useAddress();
   const contract = new ethers.Contract(contractAddress, abi, signer);
   async function addFileToBlockchain(fileIPFSID, description, fileType) {
-    await contract.addFiles(address, fileIPFSID, description, fileType);
+    await contract.addFiles(fileIPFSID, description, fileType);
   }
 
   function getAccessorOfFile(fileIPFSID) {

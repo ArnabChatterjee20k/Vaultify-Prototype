@@ -9,6 +9,7 @@
   },
   "scripts": {
     "server": "npm run -w backend dev",
+    "supabase": "npm run -w backend supabase",
     "client": "npm run -w frontend dev"
   },
   "keywords": [],

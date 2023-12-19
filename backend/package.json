@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node index.js",
-    "supbase": "npx supabase status",
+    "supabase": "npx supabase status",
     "generate_schema": "npx supabase db diff --use-migra current_schema -f current_schema"
   },
   "keywords": [],
