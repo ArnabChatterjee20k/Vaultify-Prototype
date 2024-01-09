@@ -11,6 +11,7 @@ https://ruanmartinelli.com/posts/npm-7-workspaces-1/
 
 https://blog.logrocket.com/managing-full-stack-monorepo-pnpm/
 
+https://www.youtube.com/watch?v=4DOBsEGyKF0
 ## How monorepos are working actually?
 
 - Basically here we are having two workspaces frontend and backend
